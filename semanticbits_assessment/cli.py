@@ -1,15 +1,29 @@
 # _*_ coding: utf-8 _*_
 
 """Console script for semanticbits_assessment."""
-import sys
+from semanticbits_assessment.processors import HealthProcessor
+from logging.config import fileConfig
 import click
-from semanticbits_assessment.semanticbits_assessment import func1
+import sys
+
+fileConfig('logging.ini')
 
 
-@click.command()
+@click.group()
 def main(args=None):
     """console script for semanticbits_assessment."""
     click.echo("Hello, what would you like to search for?")
+    return 0
+
+
+@main.command()
+@click.option('--data', type=click.Path(resolve_path=True, exists=True, dir_okay=False))
+def load_data(data):
+    try:
+        hp = HealthProcessor(data)
+        hp.run()
+    except Exception as exc:
+        click.secho(str(exc), fg='red', err=True)
     return 0
 
 

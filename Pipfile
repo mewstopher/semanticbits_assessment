@@ -14,6 +14,7 @@ semanticbits-models = {git = "https://github.com/mewstopher/semanticbits_models"
 pandas = "*"
 sqlalchemy = "*"
 python-decouple = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.8"

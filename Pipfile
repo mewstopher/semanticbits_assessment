@@ -7,10 +7,10 @@ verify_ssl = true
 pytest = "*"
 pytest-runner = "*"
 
-
 [packages]
 click = "*"
 semanticbits-assessment = {editable = true,path = "."}
+pandas = "*"
 
 [requires]
 python_version = "3.8"

@@ -12,7 +12,6 @@ fileConfig('logging.ini')
 @click.group()
 def main(args=None):
     """console script for semanticbits_assessment."""
-    click.echo("Hello, what would you like to search for?")
     return 0
 
 

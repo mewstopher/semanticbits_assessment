@@ -10,7 +10,10 @@ pytest-runner = "*"
 [packages]
 click = "*"
 semanticbits-assessment = {editable = true,path = "."}
+semanticbits-models = {git = "https://github.com/mewstopher/semanticbits_models"}
 pandas = "*"
+sqlalchemy = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.8"

@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "$PYPI_URL"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+pytest-runner = "*"
+
+
+[packages]
+click = "*"
+semanticbits-assessment = {editable = true,path = "."}
+
+[requires]
+python_version = "3.8"

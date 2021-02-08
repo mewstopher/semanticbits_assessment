@@ -11,7 +11,6 @@ fileConfig('logging.ini')
 
 @click.group()
 def main(args=None):
-    """console script for semanticbits_assessment."""
     return 0
 
 
@@ -27,4 +26,4 @@ def load_data(data):
 
 
 if __name__ == "__main__":
-    sys.exit(main()) # pragma: no cover
+    sys.exit(main())

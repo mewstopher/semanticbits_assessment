@@ -30,7 +30,7 @@ class HealthProcessor:
         df_sub = df.loc[df.State.str.upper().isin(Constants.NE_STATES.value)]
         return df_sub
 
-    def float_to_int(self, df):
+    def float_to_int(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         change float values to integers
         """
@@ -41,11 +41,14 @@ class HealthProcessor:
             df[col] = df[col].astype(int)
         return df
 
-    def create_health(self, record) -> Health:
+    def create_health(self, record: pd.Series) -> Health:
         """
         create the health table
-        """
 
+        RETURNS
+        ---------
+        Health data class
+        """
         info = {
             'state': record.State,
             'county': record.County,
@@ -65,11 +68,16 @@ class HealthProcessor:
         }
         return Health(**info)
 
-    def parse_records(self, df) -> list:
+    def parse_records(self, df: pd.DataFrame) -> list:
         """
         parse each row from the dataframe,
         turn into a Health data object,
         and append that object ot a list
+
+        RETURNS
+        ---------
+        health_rows: list
+            a list of Health data classes
         """
         health_rows = []
         for idx, row in df.iterrows():
@@ -80,7 +88,7 @@ class HealthProcessor:
     def run(self):
         """
         get df subset, transform necessary values
-        from float to int, and add record to db
+        from float to int, and add all records to db
         """
         df_subset = self.get_subset()
         df_transformed = self.float_to_int(df_subset)
